@@ -1,10 +1,14 @@
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using SimpleAPI;
+using SimpleAPI.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions((opt) =>
+{
+
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -23,6 +27,7 @@ if (app.Environment.IsDevelopment())
 //app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseMiddleware<RestMiddleware>();
 
 app.MapControllers();
 

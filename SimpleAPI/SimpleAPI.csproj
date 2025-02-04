@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,6 +8,15 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Allegro.BuildTasks">
+      <HintPath>..\ExtLib\Allegro.BuildTasks.dll</HintPath>
+    </Reference>
+    <PackageReference Include="Microsoft.CodeAnalysis">
+      <Version>4.11.0</Version>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

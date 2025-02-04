@@ -33,19 +33,6 @@ namespace SimpleAPI.Controllers
             .ToArray();
         }
 
-        [HttpGet(Name = "AddController")]
-        public void AddController(string assName = "ExtController.dll")
-        {
-            // Dynamically load assembly 
-            Assembly assembly = Assembly.LoadFrom($@"d:\temp\ass\{assName}");
 
-            // Add controller to the application
-            AssemblyPart _part = new AssemblyPart(assembly);
-            _cPartManager.ApplicationParts.Add(_part);
-            // Notify change
-            MyActionDescriptorChangeProvider.Instance.HasChanged = true;
-            MyActionDescriptorChangeProvider.Instance.TokenSource.Cancel();
-
-        }
     }
 }
